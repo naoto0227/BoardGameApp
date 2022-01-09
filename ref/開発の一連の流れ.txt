@@ -1,0 +1,64 @@
+#まだGitにもGithubにも慣れていないため、改善点などがあったらどんどん教えてください。
+#Gitがインストールされていること前提。
+
+・各作業者がやるべき内容
+  
+  ⓪リモートリポジトリの内容をローカルにクローンする。
+     ローカルのターミナル上でクローンしたいディレクトリにcdで移動し、
+
+　　 git clone [クローンしたいリポジトリ名]
+              または、
+　　 git clone -b [クローンしたいブランチ名][クローンしたいリポジトリ名]
+     
+     で指定する。
+
+　①issueの作成
+　　　Github上のissueバー→「New Issue」
+　　  タイトルと説明を設定し、右のAssigneesの欄からissueを行う人を決定。(現状、基本的には自分を設定)
+     「Submit new issue」でissueを作成。
+
+  ②ブランチの作成
+　　　issueごとにブランチを立てる。ブランチモデルはGitHub Flow。
+      ブランチ名は、feature/issue番号といった形で統一する。(#3番目のissueに対してのブランチはfeature/3)
+      ローカル環境で、
+
+　　　git branch feature/XXX
+      git checkout feature/XXX
+      　　　　または、
+　　　git checkout -b feature/XXX
+ 
+      で指定する。
+　　　※git branchで現在のブランチを確認できる。
+
+  ③issueごとに必要な作業をローカル環境で行う。
+
+　④変更部分の確認
+      ローカル環境で、
+
+　　　git status
+      　　や
+　　　git diff
+      
+      を用いて何が変更されたかを調べる。
+
+　⑤コミット&プッシュ
+      ローカル環境で、
+
+　　　git add [追加したいファイル]
+      git commit -m "コミットメッセージ"
+      git push origin [ブランチ名]
+
+　　　のgitの基本コマンドを用いてコミットとプッシュを行う。
+
+　⑥pull requestの要求
+　　　Github上で黄色のバーが出てくるので、その場所の「Compare & pull request」を押す。
+　　　Titleとdescriptionを埋める。descriptionの中にissue番号を記載。
+　　　「Create pull request」を押す。
+
+・プロジェクト管理者がやるべき内容
+　⑦pull requestの許可とmasterへのmerge
+      内容を確認し、問題なければ「Merge pull request」を押す。
+
+　⑧issueを削除する。
+　　　「Close issue」を押す。
+  
